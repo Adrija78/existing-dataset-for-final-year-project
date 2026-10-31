@@ -1,0 +1,206 @@
+{
+  "report_title": "Phase 8 Storage Audit (read-only)",
+  "generated_utc": "2026-10-31T18:45:50+00:00",
+  "disk": {
+    "total_bytes": 494384795648,
+    "used_bytes": 454515425280,
+    "free_bytes": 39869370368,
+    "free_gb": 39.87,
+    "total_gb": 494.38
+  },
+  "ram_gb": 16,
+  "budget_gb": {
+    "target_cap": 20,
+    "user_upper_bound": 30,
+    "min_free_space_floor": 15
+  },
+  "project": {
+    "path": "/Users/aviksamanta/Downloads/existing-dataset-for-final-year-project",
+    "total_bytes": 216226669,
+    "total_mb": 216.23,
+    "file_count": 102,
+    "top_level_bytes": {
+      ".DS_Store": 10244,
+      ".git": 31592307,
+      "dataset": 553,
+      "outputs": 184513885,
+      "scripts": 73511,
+      "training": 36169
+    },
+    "outputs_files_mb": {
+      "outputs/merged_soc_dataset.jsonl": 72.14,
+      "outputs/merged_soc_dataset.csv": 38.68,
+      "outputs/dataset1_cleaned.csv": 32.2,
+      "outputs/merged_soc_dataset.parquet": 12.85,
+      "outputs/supervised_soc_dataset.jsonl": 11.84,
+      "outputs/supervised_soc_dataset.csv": 6.28,
+      "outputs/dataset2_cleaned.csv": 6.28,
+      "outputs/merged_soc_dataset_deduplicated.csv": 1.55,
+      "outputs/supervised_soc_dataset.parquet": 0.82,
+      "outputs/merged_soc_dataset_balanced.jsonl": 0.31,
+      "outputs/merged_soc_dataset_deduplicated.parquet": 0.29,
+      "outputs/merged_soc_dataset_balanced.csv": 0.18,
+      "outputs/visualizations/phase6_suspicious_breakdown.png": 0.11,
+      "outputs/visualizations/merged_event_types.png": 0.11
+    }
+  },
+  "duplicates": {
+    "byte_identical_files": [
+      {
+        "sha256": "5ab072951b4054431f5c50722df72db0d06917bf83d5d5298e7bde4d61493149",
+        "files": [
+          "outputs/dataset2_cleaned.csv",
+          "outputs/supervised_soc_dataset.csv"
+        ],
+        "bytes_each": 6279113
+      }
+    ],
+    "same_dataset_multiple_formats": {
+      "master_120k": {
+        "canonical": "outputs/merged_soc_dataset.parquet",
+        "files": {
+          "outputs/merged_soc_dataset.parquet": {
+            "bytes": 12850077,
+            "rows": 120000,
+            "same_event_ids_as_canonical": true,
+            "protected": true
+          },
+          "outputs/merged_soc_dataset.csv": {
+            "bytes": 38679886,
+            "rows": 120000,
+            "same_event_ids_as_canonical": true,
+            "protected": true
+          },
+          "outputs/merged_soc_dataset.jsonl": {
+            "bytes": 72144051,
+            "rows": 120000,
+            "same_event_ids_as_canonical": true,
+            "protected": true
+          }
+        },
+        "bytes_in_non_canonical_copies": 110823937
+      },
+      "supervised_20k": {
+        "canonical": "outputs/supervised_soc_dataset.parquet",
+        "files": {
+          "outputs/supervised_soc_dataset.parquet": {
+            "bytes": 816301,
+            "rows": 20000,
+            "same_event_ids_as_canonical": true,
+            "protected": false
+          },
+          "outputs/supervised_soc_dataset.csv": {
+            "bytes": 6279113,
+            "rows": 20000,
+            "same_event_ids_as_canonical": true,
+            "protected": false
+          },
+          "outputs/supervised_soc_dataset.jsonl": {
+            "bytes": 11838016,
+            "rows": 20000,
+            "same_event_ids_as_canonical": true,
+            "protected": false
+          },
+          "outputs/dataset2_cleaned.csv": {
+            "bytes": 6279113,
+            "rows": 20000,
+            "same_event_ids_as_canonical": true,
+            "protected": false
+          }
+        },
+        "bytes_in_non_canonical_copies": 24396242
+      },
+      "deduplicated_4304": {
+        "canonical": "outputs/merged_soc_dataset_deduplicated.parquet",
+        "files": {
+          "outputs/merged_soc_dataset_deduplicated.parquet": {
+            "bytes": 288274,
+            "rows": 4304,
+            "same_event_ids_as_canonical": true,
+            "protected": false
+          },
+          "outputs/merged_soc_dataset_deduplicated.csv": {
+            "bytes": 1552576,
+            "rows": 4304,
+            "same_event_ids_as_canonical": true,
+            "protected": false
+          }
+        },
+        "bytes_in_non_canonical_copies": 1552576
+      },
+      "phase7_balanced_484": {
+        "canonical": "outputs/merged_soc_dataset_balanced.parquet",
+        "files": {
+          "outputs/merged_soc_dataset_balanced.parquet": {
+            "bytes": 55227,
+            "rows": 484,
+            "same_event_ids_as_canonical": true,
+            "protected": true
+          },
+          "outputs/merged_soc_dataset_balanced.csv": {
+            "bytes": 176431,
+            "rows": 484,
+            "same_event_ids_as_canonical": true,
+            "protected": true
+          },
+          "outputs/merged_soc_dataset_balanced.jsonl": {
+            "bytes": 308950,
+            "rows": 484,
+            "same_event_ids_as_canonical": true,
+            "protected": true
+          }
+        },
+        "bytes_in_non_canonical_copies": 485381
+      }
+    },
+    "git_history_note": "All outputs are committed, so .git holds a compressed copy of each (pack size in top_level_bytes['.git'])."
+  },
+  "temporary_files_in_project": [
+    ".DS_Store"
+  ],
+  "external_on_same_disk": {
+    "huggingface_cache": {
+      "path": "/Users/aviksamanta/.cache/huggingface",
+      "bytes": 4862657947
+    },
+    "huggingface_hub_cache": {
+      "path": "/Users/aviksamanta/.cache/huggingface/hub",
+      "bytes": 3542200756
+    },
+    "huggingface_xet_cache": {
+      "path": "/Users/aviksamanta/.cache/huggingface/xet",
+      "bytes": 1320451413
+    },
+    "huggingface_datasets_cache": {
+      "path": "/Users/aviksamanta/.cache/huggingface/datasets",
+      "bytes": 0
+    },
+    "pip_cache": {
+      "path": "/Users/aviksamanta/Library/Caches/pip",
+      "bytes": 992085119
+    }
+  },
+  "witfoo_remote_file_sizes": {
+    "retrieved": "2026-11-01",
+    "api": "https://huggingface.co/api/datasets/<repo>/tree/main/<dir>?recursive=true",
+    "witfoo/precinct6-cybersecurity (2M, v2.1.0)": {
+      "signals/signals.parquet": 117056748,
+      "signals/incident_signals.parquet": 10518589,
+      "signals/metadata.json": 10098,
+      "build/ (4 json files)": 2900000,
+      "reference/lead_rules_catalog.json": 150000,
+      "graph/ (983 files)": 7738300000,
+      "total_repo_bytes": 7741000000
+    },
+    "witfoo/precinct6-cybersecurity-100m (v2.1.0)": {
+      "signals/ (58 signal shards + incident_signals + metadata)": 4365600000,
+      "largest_signal_shard signals-00000.parquet": 107830000,
+      "smallest_signal_shard signals-00057.parquet": 13320000,
+      "build/ (3 json files)": 2800000,
+      "reference/lead_rules_catalog.json": 150000,
+      "graph/ (983 files)": 8452700000,
+      "total_repo_bytes": 8455000000
+    }
+  },
+  "nothing_deleted_or_modified": true
+}
