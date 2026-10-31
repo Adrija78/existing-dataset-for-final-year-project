@@ -1,0 +1,130 @@
+{
+  "dataset_name": "Dataset 2 (WitFoo Precinct6 Signals / production_soc_sanitized)",
+  "initial_record_count": 20000,
+  "cleaned_record_count": 20000,
+  "exact_duplicates_removed": 0,
+  "duplicate_event_ids": 0,
+  "invalid_ips_found": 0,
+  "invalid_ports_found": 0,
+  "invalid_timestamps_found": 0,
+  "missing_values_post_cleaning": {
+    "event_id": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "timestamp": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "timestamp_raw": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "event_type": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "source": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "severity": {
+      "missing_count": 3566,
+      "missing_percentage": 17.83
+    },
+    "source_ip": {
+      "missing_count": 16125,
+      "missing_percentage": 80.62
+    },
+    "dest_ip": {
+      "missing_count": 16873,
+      "missing_percentage": 84.36
+    },
+    "source_port": {
+      "missing_count": 19251,
+      "missing_percentage": 96.25
+    },
+    "dest_port": {
+      "missing_count": 16873,
+      "missing_percentage": 84.36
+    },
+    "protocol": {
+      "missing_count": 16873,
+      "missing_percentage": 84.36
+    },
+    "protocol_raw": {
+      "missing_count": 16873,
+      "missing_percentage": 84.36
+    },
+    "user": {
+      "missing_count": 19252,
+      "missing_percentage": 96.26
+    },
+    "raw_log": {
+      "missing_count": 3126,
+      "missing_percentage": 15.63
+    },
+    "label": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "label_text": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "label_raw": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "label_source": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "data_origin": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    }
+  },
+  "label_distribution": {
+    "benign (0)": 19956,
+    "suspicious (1)": 44,
+    "malicious (2)": 0,
+    "unlabeled": 0
+  },
+  "event_type_distribution": {
+    "systemd_event": 6717,
+    "diagnostic_event": 3586,
+    "communication": 3126,
+    "auth_event": 1860,
+    "management_message": 1608,
+    "unknown": 1123,
+    "auth_success": 748,
+    "access_log": 748,
+    "pam_event": 373,
+    "integration_status": 61,
+    "auth_failure": 44,
+    "generic_event": 5,
+    "suspect long flow": 1
+  },
+  "severity_distribution": {
+    "notice": 11549,
+    "NaN": 3566,
+    "informational": 3009,
+    "error": 1802,
+    "critical": 52,
+    "warning": 21,
+    "debug": 1
+  },
+  "source_distribution_top10": {
+    "crond": 6337,
+    "filebeat_diagnostic": 3586,
+    "network_communication": 3126,
+    "systemd_logind": 1860,
+    "sshd": 1496,
+    "no_useful_info": 1119,
+    "symantec_sep": 852,
+    "cisco_os": 756,
+    "systemd": 380,
+    "pam": 373
+  }
+}

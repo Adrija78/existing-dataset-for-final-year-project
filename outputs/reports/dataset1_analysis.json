@@ -1,0 +1,116 @@
+{
+  "dataset_name": "Dataset 1 (Advanced SIEM / synthetic_siem)",
+  "initial_record_count": 100000,
+  "cleaned_record_count": 100000,
+  "exact_duplicates_removed": 0,
+  "duplicate_event_ids": 0,
+  "invalid_ips_found": 0,
+  "invalid_ports_found": 0,
+  "invalid_timestamps_found": 0,
+  "missing_values_post_cleaning": {
+    "event_id": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "timestamp": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "timestamp_raw": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "event_type": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "source": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "severity": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "source_ip": {
+      "missing_count": 50201,
+      "missing_percentage": 50.2
+    },
+    "dest_ip": {
+      "missing_count": 66426,
+      "missing_percentage": 66.43
+    },
+    "source_port": {
+      "missing_count": 87552,
+      "missing_percentage": 87.55
+    },
+    "dest_port": {
+      "missing_count": 87552,
+      "missing_percentage": 87.55
+    },
+    "protocol": {
+      "missing_count": 75217,
+      "missing_percentage": 75.22
+    },
+    "user": {
+      "missing_count": 49717,
+      "missing_percentage": 49.72
+    },
+    "raw_log": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "label": {
+      "missing_count": 100000,
+      "missing_percentage": 100.0
+    },
+    "label_text": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "label_source": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "data_origin": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    }
+  },
+  "label_distribution": {
+    "unlabeled": 100000,
+    "benign": 0,
+    "suspicious": 0,
+    "malicious": 0
+  },
+  "event_type_distribution": {
+    "ai": 12667,
+    "endpoint": 12589,
+    "auth": 12516,
+    "cloud": 12511,
+    "ids_alert": 12500,
+    "firewall": 12448,
+    "iot": 12434,
+    "network": 12335
+  },
+  "severity_distribution": {
+    "medium": 20639,
+    "low": 20507,
+    "high": 20496,
+    "info": 18127,
+    "critical": 17711,
+    "emergency": 2520
+  },
+  "source_distribution_top10": {
+    "ArcSight v7.4.0": 5134,
+    "OSSEC v3.7.0": 5101,
+    "AlienVault v5.7.0": 5080,
+    "FireEye HX v4.5.0": 5078,
+    "CrowdStrike v6.45.0": 5069,
+    "Zeek v5.0.0": 5026,
+    "Splunk v9.0.2": 5021,
+    "Suricata v6.0.10": 5006,
+    "Trellix v10.7.0": 4995,
+    "Palo Alto Cortex v3.0.0": 4994
+  }
+}

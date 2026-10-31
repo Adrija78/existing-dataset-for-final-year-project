@@ -1,0 +1,73 @@
+{
+  "report_title": "Phase 7 Deduplication, Class Balancing, and Experimental Dataset Creation Report",
+  "methodology": {
+    "deduplication_rule": "Exact content matching across all 10 core event features (event_type, source, severity, source_ip, dest_ip, source_port, dest_port, protocol, user, raw_log), keeping the first occurrence.",
+    "balancing_ratio": "10:1 (Benign : Suspicious/Alert)",
+    "sampling_method": "Stratified proportional sampling across all 12 benign event types with random_state=42",
+    "binary_label_mapping": {
+      "0": "benign",
+      "1": "suspicious/alert"
+    }
+  },
+  "deduplication_statistics": {
+    "initial_benign_records": 19956,
+    "duplicate_benign_removed": 15696,
+    "duplicate_benign_percentage": 78.65,
+    "unique_benign_retained": 4260,
+    "exclusions_breakdown_by_event_type": {
+      "systemd_event": 6690,
+      "diagnostic_event": 3033,
+      "auth_event": 1855,
+      "unknown": 1116,
+      "communication": 1077,
+      "auth_success": 746,
+      "access_log": 746,
+      "pam_event": 372,
+      "management_message": 50,
+      "integration_status": 11
+    },
+    "suspicious_duplicates_found": 0,
+    "unique_suspicious_retained": 44,
+    "deduplicated_dataset_total_rows": 4304
+  },
+  "balanced_dataset_statistics": {
+    "total_records": 484,
+    "benign_count": 440,
+    "suspicious_count": 44,
+    "malicious_count": 0,
+    "imbalance_ratio": "10.0 : 1",
+    "benign_percentage": 90.91,
+    "suspicious_percentage": 9.09,
+    "benign_event_types_sampled": {
+      "communication": 205,
+      "management_message": 158,
+      "diagnostic_event": 57,
+      "integration_status": 6,
+      "systemd_event": 4,
+      "unknown": 2,
+      "auth_event": 2,
+      "generic_event": 2,
+      "auth_success": 1,
+      "access_log": 1,
+      "pam_event": 1,
+      "suspect long flow": 1
+    },
+    "suspicious_event_types": {
+      "auth_failure": 44
+    }
+  },
+  "data_leakage_and_shortcut_mitigation": {
+    "deterministic_event_type_leak": "event_type == 'auth_failure' is 100% predictive of class 1. Policy: Preserved in dataset as metadata/evaluation target; must be excluded from model input prompts.",
+    "host_shortcut_mitigation": "Suspicious events originate strictly from HOST-0002 (23) and HOST-0006 (21). Policy: Must use host-grouped splitting or hostname masking for future training.",
+    "grouped_splitting_requirement": "Splits must be template-aware and host-grouped to test actual generalization rather than token memorization."
+  },
+  "final_experimental_assessment": {
+    "suitability_for_qwen3_4b_fine_tuning": "Conditionally suitable as a proof-of-concept / binary triage baseline only.",
+    "core_limitations": [
+      "Extremely small sample size (484 records total) for a 4B parameter language model.",
+      "Zero variety in the suspicious class: all 44 records represent a single auth_failure syslog template.",
+      "Zero examples of confirmed malicious attacks (class 2 is unpopulated in this slice).",
+      "High risk of overfitting to the specific syslog duration/counter syntax unless supplemented with upstream events."
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "phase": "Phase 3: Label Quality, Class Imbalance and Merge Compatibility Analysis",
+  "dataset_1_status": {
+    "source": "Advanced SIEM (darkknight25/Advanced_SIEM_Dataset)",
+    "origin": "synthetic_siem",
+    "record_count": 100000,
+    "label_status": "100% Unlabelled (pending review)",
+    "benign_count": 0,
+    "suspicious_count": 0,
+    "malicious_count": 0,
+    "unlabeled_count": 100000
+  },
+  "dataset_2_status": {
+    "source": "WitFoo Precinct6 Cybersecurity 100M (signals split)",
+    "origin": "production_soc_sanitized",
+    "record_count": 20000,
+    "label_mapping_verified": true,
+    "label_counts": {
+      "benign_0": 19956,
+      "suspicious_1": 44,
+      "malicious_2": 0
+    },
+    "suspicious_records_breakdown": {
+      "total": 44,
+      "event_type": "auth_failure (100%)",
+      "source": "generic_log (100%)",
+      "severity": "informational (100%)",
+      "hosts_involved": [
+        "HOST-0002",
+        "HOST-0006"
+      ],
+      "features_missing": [
+        "user",
+        "source_ip",
+        "dest_ip",
+        "source_port",
+        "dest_port",
+        "protocol"
+      ]
+    }
+  },
+  "compatibility_audit": {
+    "common_columns_count": 17,
+    "common_columns": [
+      "event_id",
+      "timestamp",
+      "timestamp_raw",
+      "event_type",
+      "source",
+      "severity",
+      "source_ip",
+      "dest_ip",
+      "source_port",
+      "dest_port",
+      "protocol",
+      "user",
+      "raw_log",
+      "label",
+      "label_text",
+      "label_source",
+      "data_origin"
+    ],
+    "ds2_specific_columns": [
+      "protocol_raw",
+      "label_raw"
+    ],
+    "exact_duplicates_across_datasets": 0,
+    "event_id_overlap": 0,
+    "raw_log_overlap": 0,
+    "ip_overlap": 0,
+    "user_overlap": 0,
+    "common_dest_ports": 23,
+    "timestamp_compatibility": {
+      "ds1_span": "2020-07-12 to 2030-07-10 (synthetic scattered)",
+      "ds2_span": "2024-07-26 11:10:20 to 2024-07-26 11:21:05 (11-min real burst)",
+      "temporal_merge_risk": "High - temporal splits will segregate datasets"
+    },
+    "event_type_compatibility": {
+      "direct_overlap": 0,
+      "ds1_taxonomy": "High-level domain categories (8 classes)",
+      "ds2_taxonomy": "Low-level system/syslog event types (13 classes)",
+      "recommendation": "Map to a unified two-tier taxonomy or evaluate separately"
+    }
+  },
+  "balancing_analysis": {
+    "sufficiency_of_44_suspicious": false,
+    "reason": "Extreme lack of syntactic and semantic diversity (single template, 0 IPs/users). Severe risk of memorization in Qwen3-4B.",
+    "evaluated_strategies": {
+      "smote": "Rejected (creates invalid log text and nonsensical categorical values)",
+      "naive_oversampling": "High risk of catastrophic overfitting and token repetition",
+      "class_weighting": "Useful during SFT loss, but does not solve lack of variety",
+      "upstream_sampling": "Recommended: Stream additional suspicious and malicious signals from the 114M WitFoo source"
+    }
+  }
+}

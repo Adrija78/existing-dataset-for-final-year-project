@@ -1,0 +1,144 @@
+{
+  "report_title": "Phase 5 Master Merged Dataset Quality and Validation Report",
+  "total_records": 120000,
+  "source_contributions": {
+    "synthetic_siem (Dataset 1)": 100000,
+    "production_soc_sanitized (Dataset 2)": 20000
+  },
+  "class_distribution_master": {
+    "unlabeled": 100000,
+    "benign_0": 19956,
+    "suspicious_1": 44,
+    "malicious_2": 0
+  },
+  "class_distribution_supervised": {
+    "total_supervised": 20000,
+    "benign_0": 19956,
+    "suspicious_1": 44,
+    "malicious_2": 0,
+    "benign_pct": 99.78,
+    "suspicious_pct": 0.22,
+    "malicious_pct": 0.0
+  },
+  "integrity_metrics": {
+    "exact_duplicate_rows": 0,
+    "duplicate_event_ids": 0,
+    "label_conflicts": 0,
+    "provenance_preserved": true
+  },
+  "missing_values": {
+    "event_id": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "timestamp": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "timestamp_raw": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "event_type": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "source": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "severity": {
+      "missing_count": 3566,
+      "missing_percentage": 2.97
+    },
+    "source_ip": {
+      "missing_count": 66326,
+      "missing_percentage": 55.27
+    },
+    "dest_ip": {
+      "missing_count": 83299,
+      "missing_percentage": 69.42
+    },
+    "source_port": {
+      "missing_count": 106803,
+      "missing_percentage": 89.0
+    },
+    "dest_port": {
+      "missing_count": 104425,
+      "missing_percentage": 87.02
+    },
+    "protocol": {
+      "missing_count": 92090,
+      "missing_percentage": 76.74
+    },
+    "protocol_raw": {
+      "missing_count": 116873,
+      "missing_percentage": 97.39
+    },
+    "user": {
+      "missing_count": 68969,
+      "missing_percentage": 57.47
+    },
+    "raw_log": {
+      "missing_count": 3126,
+      "missing_percentage": 2.6
+    },
+    "label": {
+      "missing_count": 100000,
+      "missing_percentage": 83.33
+    },
+    "label_text": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "label_raw": {
+      "missing_count": 100000,
+      "missing_percentage": 83.33
+    },
+    "label_source": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "data_origin": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    }
+  },
+  "event_types_summary": {
+    "ai": 12667,
+    "endpoint": 12589,
+    "auth": 12516,
+    "cloud": 12511,
+    "ids_alert": 12500,
+    "firewall": 12448,
+    "iot": 12434,
+    "network": 12335,
+    "systemd_event": 6717,
+    "diagnostic_event": 3586,
+    "communication": 3126,
+    "auth_event": 1860,
+    "management_message": 1608,
+    "unknown": 1123,
+    "auth_success": 748,
+    "access_log": 748,
+    "pam_event": 373,
+    "integration_status": 61,
+    "auth_failure": 44,
+    "generic_event": 5,
+    "suspect long flow": 1
+  },
+  "severity_summary": {
+    "medium": 20639,
+    "low": 20507,
+    "high": 20496,
+    "info": 18127,
+    "critical": 17763,
+    "notice": 11549,
+    "<NA>": 3566,
+    "informational": 3009,
+    "emergency": 2520,
+    "error": 1802,
+    "warning": 21,
+    "debug": 1
+  }
+}

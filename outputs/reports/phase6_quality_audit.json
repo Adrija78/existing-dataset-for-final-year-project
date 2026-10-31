@@ -1,0 +1,393 @@
+{
+  "audit_title": "Phase 6 In-Depth Quality Audit Report",
+  "datasets_audited": {
+    "master_dataset": {
+      "file": "outputs/merged_soc_dataset.parquet",
+      "record_count": 120000,
+      "columns_count": 19,
+      "unlabelled_count": 100000,
+      "benign_count": 19956,
+      "suspicious_count": 44,
+      "malicious_count": 0,
+      "unique_raw_logs": 99478,
+      "duplicate_raw_logs": 20522,
+      "duplicate_feature_patterns": 106304
+    },
+    "supervised_dataset": {
+      "file": "outputs/supervised_soc_dataset.parquet",
+      "record_count": 20000,
+      "columns_count": 19,
+      "benign_count": 19956,
+      "suspicious_count": 44,
+      "malicious_count": 0,
+      "class_imbalance_ratio": "453.55 : 1 (Benign : Suspicious)",
+      "unique_raw_logs": 2256,
+      "duplicate_raw_logs": 17744,
+      "duplicate_feature_patterns": 19832
+    }
+  },
+  "suspicious_records_investigation": {
+    "total_count": 44,
+    "unique_event_types": [
+      "auth_failure"
+    ],
+    "unique_sources": [
+      "generic_log"
+    ],
+    "unique_severities": [
+      "informational"
+    ],
+    "hosts_breakdown": {
+      "HOST-0002": 23,
+      "HOST-0006": 21
+    },
+    "null_features": {
+      "user": 44,
+      "source_ip": 44,
+      "dest_ip": 44,
+      "source_port": 44,
+      "dest_port": 44,
+      "protocol": 44
+    },
+    "sample_raw_logs": [
+      "<142>Jul 26 11:10:51 local1: Host: HOST-0002 Duration: 6836:58:19 Count: 903031; INFORMATIONAL: Authentication failure.\u0000",
+      "<142>Jul 26 11:10:21 local1: Host: HOST-0002 Duration: 6836:57:49 Count: 903030; INFORMATIONAL: Authentication failure.\u0000",
+      "<142>Jul 26 11:11:32 local1: Host: HOST-0006 Duration: 6836:59:23 Count: 903291; INFORMATIONAL: Authentication failure.\u0000"
+    ],
+    "verdict": "Structurally and semantically deficient for general supervised fine-tuning. Represents a single repetitive auth-failure event template on two hosts."
+  },
+  "severity_by_label_supervised": {
+    "MISSING": {
+      "benign_0": 3566,
+      "suspicious_1": 0
+    },
+    "critical": {
+      "benign_0": 52,
+      "suspicious_1": 0
+    },
+    "debug": {
+      "benign_0": 1,
+      "suspicious_1": 0
+    },
+    "error": {
+      "benign_0": 1802,
+      "suspicious_1": 0
+    },
+    "informational": {
+      "benign_0": 2965,
+      "suspicious_1": 44
+    },
+    "notice": {
+      "benign_0": 11549,
+      "suspicious_1": 0
+    },
+    "warning": {
+      "benign_0": 21,
+      "suspicious_1": 0
+    }
+  },
+  "event_type_by_label_supervised": {
+    "access_log": {
+      "benign_0": 748,
+      "suspicious_1": 0
+    },
+    "auth_event": {
+      "benign_0": 1860,
+      "suspicious_1": 0
+    },
+    "auth_failure": {
+      "benign_0": 0,
+      "suspicious_1": 44
+    },
+    "auth_success": {
+      "benign_0": 748,
+      "suspicious_1": 0
+    },
+    "communication": {
+      "benign_0": 3126,
+      "suspicious_1": 0
+    },
+    "diagnostic_event": {
+      "benign_0": 3586,
+      "suspicious_1": 0
+    },
+    "generic_event": {
+      "benign_0": 5,
+      "suspicious_1": 0
+    },
+    "integration_status": {
+      "benign_0": 61,
+      "suspicious_1": 0
+    },
+    "management_message": {
+      "benign_0": 1608,
+      "suspicious_1": 0
+    },
+    "pam_event": {
+      "benign_0": 373,
+      "suspicious_1": 0
+    },
+    "suspect long flow": {
+      "benign_0": 1,
+      "suspicious_1": 0
+    },
+    "systemd_event": {
+      "benign_0": 6717,
+      "suspicious_1": 0
+    },
+    "unknown": {
+      "benign_0": 1123,
+      "suspicious_1": 0
+    }
+  },
+  "event_type_by_origin_master": {
+    "access_log": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 748
+    },
+    "ai": {
+      "synthetic_siem": 12667,
+      "production_soc_sanitized": 0
+    },
+    "auth": {
+      "synthetic_siem": 12516,
+      "production_soc_sanitized": 0
+    },
+    "auth_event": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 1860
+    },
+    "auth_failure": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 44
+    },
+    "auth_success": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 748
+    },
+    "cloud": {
+      "synthetic_siem": 12511,
+      "production_soc_sanitized": 0
+    },
+    "communication": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 3126
+    },
+    "diagnostic_event": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 3586
+    },
+    "endpoint": {
+      "synthetic_siem": 12589,
+      "production_soc_sanitized": 0
+    },
+    "firewall": {
+      "synthetic_siem": 12448,
+      "production_soc_sanitized": 0
+    },
+    "generic_event": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 5
+    },
+    "ids_alert": {
+      "synthetic_siem": 12500,
+      "production_soc_sanitized": 0
+    },
+    "integration_status": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 61
+    },
+    "iot": {
+      "synthetic_siem": 12434,
+      "production_soc_sanitized": 0
+    },
+    "management_message": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 1608
+    },
+    "network": {
+      "synthetic_siem": 12335,
+      "production_soc_sanitized": 0
+    },
+    "pam_event": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 373
+    },
+    "suspect long flow": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 1
+    },
+    "systemd_event": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 6717
+    },
+    "unknown": {
+      "synthetic_siem": 0,
+      "production_soc_sanitized": 1123
+    }
+  },
+  "data_leakage_risks": {
+    "explicit_label_in_logs": 0,
+    "deterministic_event_type": "event_type == 'auth_failure' is 100% pure (100% of suspicious, 0% of benign). Including event_type in input prompts induces trivial memorization.",
+    "spurious_host_correlation": "HOST-0002 and HOST-0006 account for 100% of suspicious logs, while HOST-0001 accounts for 14,156 benign logs.",
+    "severity_inversion": "52 critical severity events are 100% benign; all 44 suspicious events are logged as informational priority."
+  },
+  "missing_values_audit": {
+    "master_dataset": {
+      "event_id": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "timestamp": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "timestamp_raw": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "event_type": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "source": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "severity": {
+        "missing_count": 3566,
+        "missing_percentage": 2.97
+      },
+      "source_ip": {
+        "missing_count": 66326,
+        "missing_percentage": 55.27
+      },
+      "dest_ip": {
+        "missing_count": 83299,
+        "missing_percentage": 69.42
+      },
+      "source_port": {
+        "missing_count": 106803,
+        "missing_percentage": 89.0
+      },
+      "dest_port": {
+        "missing_count": 104425,
+        "missing_percentage": 87.02
+      },
+      "protocol": {
+        "missing_count": 92090,
+        "missing_percentage": 76.74
+      },
+      "protocol_raw": {
+        "missing_count": 116873,
+        "missing_percentage": 97.39
+      },
+      "user": {
+        "missing_count": 68969,
+        "missing_percentage": 57.47
+      },
+      "raw_log": {
+        "missing_count": 3126,
+        "missing_percentage": 2.6
+      },
+      "label": {
+        "missing_count": 100000,
+        "missing_percentage": 83.33
+      },
+      "label_text": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "label_raw": {
+        "missing_count": 100000,
+        "missing_percentage": 83.33
+      },
+      "label_source": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "data_origin": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      }
+    },
+    "supervised_dataset": {
+      "event_id": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "timestamp": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "timestamp_raw": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "event_type": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "source": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "severity": {
+        "missing_count": 3566,
+        "missing_percentage": 17.83
+      },
+      "source_ip": {
+        "missing_count": 16125,
+        "missing_percentage": 80.62
+      },
+      "dest_ip": {
+        "missing_count": 16873,
+        "missing_percentage": 84.36
+      },
+      "source_port": {
+        "missing_count": 19251,
+        "missing_percentage": 96.25
+      },
+      "dest_port": {
+        "missing_count": 16873,
+        "missing_percentage": 84.36
+      },
+      "protocol": {
+        "missing_count": 16873,
+        "missing_percentage": 84.36
+      },
+      "protocol_raw": {
+        "missing_count": 16873,
+        "missing_percentage": 84.36
+      },
+      "user": {
+        "missing_count": 19252,
+        "missing_percentage": 96.26
+      },
+      "raw_log": {
+        "missing_count": 3126,
+        "missing_percentage": 15.63
+      },
+      "label": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "label_text": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "label_raw": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "label_source": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      },
+      "data_origin": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      }
+    }
+  }
+}
