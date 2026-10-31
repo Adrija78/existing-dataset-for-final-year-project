@@ -1,0 +1,263 @@
+{
+  "report_title": "Phase 8 Existing Labelled Data Assessment (read-only)",
+  "master_rows": 120000,
+  "supervised_rows": 20000,
+  "supervised_label_counts": {
+    "0": 19956,
+    "1": 44
+  },
+  "suspicious": {
+    "rows": 44,
+    "unique_event_ids": 44,
+    "unique_raw_logs": 44,
+    "unique_templates": 1,
+    "templates": {
+      "<PRI><TS> local<N>: Host: <HOST> Duration: <N>:<N>:<N> Count: <N>; INFORMATIONAL: Authentication failure.": 44
+    },
+    "by_host": {
+      "HOST-0002": 23,
+      "HOST-0006": 21
+    },
+    "by_event_type": {
+      "auth_failure": 44
+    },
+    "by_source": {
+      "generic_log": 44
+    },
+    "by_severity": {
+      "informational": 44
+    },
+    "by_attack_category": {
+      "none recorded in source; only 'auth_failure' event_type": 44
+    },
+    "null_counts": {
+      "user": 44,
+      "source_ip": 44,
+      "dest_ip": 44,
+      "source_port": 44,
+      "dest_port": 44,
+      "protocol": 44
+    },
+    "timestamp_min": "2024-07-26T11:10:29.478646Z",
+    "timestamp_max": "2024-07-26T11:21:00.347281Z",
+    "rows_with_trailing_nul": 44,
+    "counter_ranges_per_host": {
+      "HOST-0002": {
+        "min": 903030,
+        "max": 903053,
+        "rows": 23,
+        "values_spanned": 24
+      },
+      "HOST-0006": {
+        "min": 903289,
+        "max": 903310,
+        "rows": 21,
+        "values_spanned": 22
+      }
+    }
+  },
+  "benign": {
+    "rows": 19956,
+    "unique_by_phase7_feature_key": 4260,
+    "unique_raw_logs_non_null": 2211,
+    "rows_with_null_raw_log": 3126,
+    "unique_templates_non_null": 435,
+    "null_raw_log_unique_flow_tuples": 2049,
+    "by_host": {
+      "HOST-0001": 14156,
+      "<NA>": 3980,
+      "HOST-0007": 852,
+      "HOST-0005": 318,
+      "HOST-0232": 239,
+      "HOST-0004": 156,
+      "HOST-0003": 147,
+      "HOST-0233": 29,
+      "HOST-0234": 28,
+      "HOST-0237": 24,
+      "HOST-0240": 22,
+      "HOST-0002": 2,
+      "HOST-0006": 2,
+      "HOST-0247": 1
+    },
+    "by_source": {
+      "crond": 6337,
+      "filebeat_diagnostic": 3586,
+      "network_communication": 3126,
+      "systemd_logind": 1860,
+      "sshd": 1496,
+      "no_useful_info": 1119,
+      "symantec_sep": 852,
+      "cisco_os": 756,
+      "systemd": 380,
+      "pam": 373,
+      "Integrations Status": 61,
+      "generic_log": 5,
+      "unknown": 4,
+      "cisco_stealthwatch": 1
+    },
+    "by_event_type": {
+      "systemd_event": 6717,
+      "diagnostic_event": 3586,
+      "communication": 3126,
+      "auth_event": 1860,
+      "management_message": 1608,
+      "unknown": 1123,
+      "auth_success": 748,
+      "access_log": 748,
+      "pam_event": 373,
+      "integration_status": 61,
+      "generic_event": 5,
+      "suspect long flow": 1
+    },
+    "top_templates": {
+      "<TS> <HOST> CROND[<N>]: (<USER>) CMD (if [ -f /epic/redalert/bin/ra_sched ]; then /epic/redalert/bin/ra_sched --monitor_scheduler > /dev/null <N>>&<N> ; fi)": 3358,
+      "<TS> <HOST> CROND[<N>]: (root) CMD (/usr/lib<N>/sa/sa<N> <N> <N>)": 2235,
+      "<TS> <HOST> systemd-logind: Removed session <N>.": 1860,
+      "<TS> <HOST> filebeat: <TS>-<N>#<N>INFO#<N>[publisher]#<N>pipeline/retry.go:<N>#<N>retryer: send unwait signal to consumer": 1217,
+      "<TS> <HOST> filebeat: <TS>-<N>#<N>INFO#<N>[publisher]#<N>pipeline/retry.go:<N>#<N> done": 1216,
+      "<TS> <HOST> sshd[<N>]: Accepted password for <USER> from <IP> port <N> ssh<N>": 748,
+      "<TS> <HOST> sshd[<N>]: Received disconnect from <IP> port <N>:<N>: Terminating connection": 748,
+      "<TS> <HOST> filebeat: <TS>-<N>#<N>ERROR#<N>[logstash]#<N>logstash/async.go:<N>#<N>Failed to publish events caused by: client is not connected": 405,
+      "[<TS>] [ message] [vix] VixTools_ProcessVixCommand: command <N>": 375,
+      "<TS> <HOST> run-parts(/etc/cron.hourly)[<N>]: finished <N>anacron": 373,
+      "<TS> <HOST> systemd: Started Session <N> of user <USER>.": 373,
+      "<TS> <HOST> sshd[<N>]: pam_unix(sshd:session): session opened for user <USER> by (uid=<N>)": 373,
+      "<TS> <HOST> CROND[<N>]: (root) CMD (run-parts /etc/cron.hourly)": 372,
+      "<TS> <HOST> CROND[<N>]: (root) CMD (/usr/lib<N>/sa/sa<N> -A)": 372,
+      "<TS> <HOST> run-parts(/etc/cron.hourly)[<N>]: starting <N>anacron": 371,
+      "<TS> <HOST> filebeat: <TS>-<N>#<N>ERROR#<N>[logstash]#<N>logstash/async.go:<N>#<N>Failed to publish events caused by: read tcp <IP>:<N>-><IP>:<N>: read: connection reset by peer": 369,
+      "<PRI><N>: <HOST>: <TS>.<N> CDT: %LINK-<N>-UPDOWN: Interface GigabitEthernet<N>/<N>/<N>, changed state to up": 124,
+      "<PRI><N>: <HOST>: <TS>.<N> CDT: %LINK-<N>-UPDOWN: Interface GigabitEthernet<N>/<N>/<N>, changed state to down": 123,
+      "<PRI><N>: <IP>: <TS>.<N> CDT: %ILPOWER-<N>-IEEE_DISCONNECT: Interface Gi<N>/<N>/<N>: PD removed": 122,
+      "<PRI><TS> <HOST> SymantecServer: Site: Site <HOST>,Server Name: <HOST>,Domain Name: host-<N>.example.internal,The client has downloaded the content package successfully,domain-<N>.example.net,<USER>,domain-<N>.example.net": 68,
+      "<PRI><N>: <IP>: <TS>.<N> CDT: %ILPOWER-<N>-DETECT: Interface Gi<N>/<N>/<N>: Power Device detected: Cisco PD": 62,
+      "<PRI><N>: <IP>: <TS>.<N> CDT: %SEC_LOGIN-<N>-LOGIN_SUCCESS: Login Success [user: <USER>] [Source: <IP>] [localport: <N>] at <N>:<N>:<N> CDT Fri Jul <N> <N>": 47,
+      "<TS> <HOST> filebeat: <TS>-<N>#<N>INFO#<N>[publisher_pipeline_output]#<N>pipeline/output.go:<N>#<N>Connection to backoff(async(tcp://<IP>:<N>)) established": 33,
+      "<TS> <HOST> filebeat: <TS>-<N>#<N>INFO#<N>[publisher_pipeline_output]#<N>pipeline/output.go:<N>#<N>Connecting to backoff(async(tcp://<IP>:<N>))": 33,
+      "<TS> <HOST> filebeat: <TS>-<N>#<N>ERROR#<N>[publisher_pipeline_output]#<N>pipeline/output.go:<N>#<N>failed to publish events: client is not connected": 33
+    },
+    "security_keyword_rows": 1011,
+    "security_keyword_templates": 69,
+    "security_keyword_rows_by_source": {
+      "filebeat_diagnostic": 888,
+      "symantec_sep": 72,
+      "Integrations Status": 40,
+      "cisco_os": 6,
+      "generic_log": 4,
+      "cisco_stealthwatch": 1
+    },
+    "security_relevant_benign_examples": {
+      "suspect_long_flow_stealthwatch": 1,
+      "symantec_ips_submission": 2,
+      "critical_severity_rows": 52
+    }
+  },
+  "cross_label": {
+    "templates_with_conflicting_labels": 0,
+    "raw_logs_with_conflicting_labels": 0,
+    "event_ids_duplicated": 0,
+    "host_local1_device_status_family": [
+      {
+        "label": 1,
+        "pri": "142",
+        "host": "HOST-0002",
+        "message": "INFORMATIONAL: Authentication failure.",
+        "rows": 23
+      },
+      {
+        "label": 1,
+        "pri": "142",
+        "host": "HOST-0006",
+        "message": "INFORMATIONAL: Authentication failure.",
+        "rows": 21
+      },
+      {
+        "label": 0,
+        "pri": "141",
+        "host": "HOST-0002",
+        "message": "NOTICE: Scheduled job failed. (deviceInfo)",
+        "rows": 2
+      },
+      {
+        "label": 0,
+        "pri": "141",
+        "host": "HOST-0006",
+        "message": "NOTICE: Scheduled job failed. (deviceInfo)",
+        "rows": 2
+      }
+    ],
+    "benign_rows_on_suspicious_hosts": 4,
+    "notebook_schema_check": {
+      "notebook_feature_columns_present_in_dataset": [
+        "dest_port",
+        "user"
+      ],
+      "notebook_feature_columns_missing_from_dataset": [
+        "method",
+        "url",
+        "status_code",
+        "bytes",
+        "auth_method",
+        "user_agent"
+      ],
+      "rows_with_all_checked_features_null_by_label": {
+        "0": 16081,
+        "1": 44
+      },
+      "note": "source is not aliased to log_source in the notebook ALIASES, so log_source would also be 'none'."
+    }
+  },
+  "phase7_balanced": {
+    "rows": 484,
+    "by_label": {
+      "0": 440,
+      "1": 44
+    },
+    "benign_with_null_raw_log": 205,
+    "benign_by_event_type": {
+      "communication": 205,
+      "management_message": 158,
+      "diagnostic_event": 57,
+      "integration_status": 6,
+      "systemd_event": 4,
+      "unknown": 2,
+      "auth_event": 2,
+      "generic_event": 2,
+      "auth_success": 1,
+      "access_log": 1,
+      "pam_event": 1,
+      "suspect long flow": 1
+    }
+  },
+  "dataset1_unlabelled": {
+    "rows": 100000,
+    "unique_raw_logs": 97222,
+    "timestamp_min": "2020-07-12T21:38:20Z",
+    "timestamp_max": "2030-07-10T06:49:21Z",
+    "label_non_null": 0,
+    "provenance_note": "darkknight25/Advanced_SIEM_Dataset (Hugging Face); its card describes the data as synthetic."
+  },
+  "supervised_timestamp_range": [
+    "2024-07-26T11:10:20.724782Z",
+    "2024-07-26T11:21:05.354593Z"
+  ],
+  "raw_log_month_tokens": {
+    "Jan": 11913,
+    "Dec": 2243,
+    "Jul": 1522,
+    "<NA>": 1196
+  },
+  "protected_file_sha256": {
+    "merged_soc_dataset.csv": "02b68ed407bfa899c748bbde1e97bf92ee708f796cde88c57a145af287382ed9",
+    "merged_soc_dataset.parquet": "d5583cdb997b923d02f824a13891a7769f23df066d5e3c3f329d82a1d56ba1c6",
+    "merged_soc_dataset.jsonl": "541db5bb81c62f1712b9dd6cedc8117e23e8b82b7fcae9e662b34136376e2fff",
+    "supervised_soc_dataset.csv": "5ab072951b4054431f5c50722df72db0d06917bf83d5d5298e7bde4d61493149",
+    "supervised_soc_dataset.parquet": "8c734bd44190e260c1a8ad968d7182826c5e2049a90edc98014f07651a87bd8f",
+    "supervised_soc_dataset.jsonl": "170e3f2f77e95149d3b3b00f8e3a065f24bedc59f9b895e794970e26d97ed659",
+    "merged_soc_dataset_deduplicated.csv": "b6582e99423406e4e580c5603c73b2814953985429212140129e0180210309da",
+    "merged_soc_dataset_deduplicated.parquet": "47b063c1f5b3052dfab66499587c92c2d0bfb8e574c9aa7b630af88c2c7cd731",
+    "merged_soc_dataset_balanced.csv": "22b81510bd747d2d95396ce355231814ea7e39dda92097370b0ed43a12465797",
+    "merged_soc_dataset_balanced.parquet": "7c5f6a34c94fe4f013c97eeb09a2aaf120f775da3306454dea2d1c8e105dcea3",
+    "merged_soc_dataset_balanced.jsonl": "ed40158d6f21c81e0ae3fa014b9d12a0c2a9d47d15b61d71830e1a4d6165849f"
+  }
+}
